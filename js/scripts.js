@@ -1,11 +1,14 @@
-
 var puzzle = function(inputString) {
-
-  // var splitString = inputString.split(" ");
   return inputString.replace(/[aeiou]/gi, '-');
-
-  // splitString.forEach(word) {
-  //   var vowels = word.search(/([aeiouAEIOU]+)/g);
-  //   return vowels.replace("-")
-  // };
 };
+
+$(function() {
+  $("form#puzzle").submit(function(event) {
+    var inputString = $("input#string").val();
+    $("div#result").text(puzzle(inputString));
+    $("form#puzzle").hide();
+
+    event.preventDefault();
+
+  });
+});
